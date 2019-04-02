@@ -13,6 +13,28 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['json.response']], function () {
+
+    Route::middleware('auth:api')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    // public routes
+    //Route::post('/login', 'Api\AuthController@login')->name('login.api');
+    //Route::post('/register', 'Api\AuthController@register')->name('register.api');
+
+    // private routes
+    Route::middleware('auth:api')->group(function () {
+        Route::get('/logout', 'Api\AuthController@logout')->name('logout');
+
+        // Route::get('/news', 'NewsController@index')->name('news');
+        // Route::get('/news/{id}', 'NewsController@show')->name('news.show');
+        // Route::post('/news', 'NewsController@create')->name('news.create');
+        // Route::patch('/news/{id}', 'NewsController@update')->name('news.update');
+        // Route::delete('/news/{id}', 'NewsController@delete')->name('news.delete');
+
+        // Route::get('categories', 'CategoryController@index')->name('categories');
+        // Route::post('categories/create', 'CategoryController@create')->name('categories.create');
+    });
+
 });
