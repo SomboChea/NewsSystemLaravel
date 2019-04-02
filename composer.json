@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "sombochea/newssystem",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "News System using The Laravel Framework.",
     "keywords": [
         "framework",
         "laravel"

@@ -15,8 +15,16 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('home', function () {
+        $user = \Auth::user()->name;
+        return redirect()->route('home')->with(['status' => "Welcome, $user!"]);
+    });
+
     Route::get('/', 'HomeController@index')->name('home'); // List all News
     Route::get('news/{id}', 'HomeController@show')->name('news.show'); // View specific News
+
+    Route::get('/api/news', 'Api\NewsController@index')->name('news');
+    Route::get('/api/news/{id}', 'Api\NewsController@show')->name('news.show');
 
     Route::get('news/post/new', 'HomeController@post')->name('news.post'); // View new Post
     Route::post('news/post/create', 'HomeController@create')->name('news.create'); // Create a new post
