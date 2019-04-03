@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/api/news', 'Api\NewsController@index')->name('api.news');
     Route::get('/api/news/{id}', 'Api\NewsController@show')->name('api.news.show');
 
-    Route::get('news/post/new', 'HomeController@post')->name('news.post'); // View new Post
+    Route::get('news/post', 'HomeController@post')->name('news.post'); // View new Post
     Route::post('news/post/create', 'HomeController@create')->name('news.create'); // Create a new post
 
     Route::get('news/post/{id}/edit', 'HomeController@edit')->name('news.edit'); // View Edit Post

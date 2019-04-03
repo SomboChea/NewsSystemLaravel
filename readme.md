@@ -38,7 +38,7 @@ Note: change .env.example to .env with your database connection
 
  ### News
  - GET: /                           => List All Posts
- - GET: /news/post/new              => Create a Post
+ - GET: /news/post                  => Create a Post
  - GET: /news/post/{id}             => Show a Post by id
  - GET: /news/post/{id}/edit        => Edit a Post by id
  - GET: /news/post/{id}/delete      => Delete a Post by id

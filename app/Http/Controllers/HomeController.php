@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = \App\News::all();
+        $news = \App\News::where('user_id', \Auth::user()->id)->get();
         return view('index', ['news' => $news]);
     }
 
